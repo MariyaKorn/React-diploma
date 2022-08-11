@@ -19,6 +19,7 @@ const SignIn: FC = () => {
             dispatch(
                 setUser({ email: user.email, id: user.uid, token: user.refreshToken })
             );
+            localStorage.setItem('uid',`${user.uid}`);
             navigate("/main");
             })
             .catch(() => alert("This user is not registered. Sign Up, please!"));

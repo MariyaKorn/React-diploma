@@ -19,6 +19,7 @@ const SignUp: FC = () => {
             dispatch(
                 setUser({ email: user.email, id: user.uid, token: user.refreshToken })
             );
+            localStorage.setItem('uid',`${user.uid}`);
             navigate("/main");
             })
             .catch(console.error);
