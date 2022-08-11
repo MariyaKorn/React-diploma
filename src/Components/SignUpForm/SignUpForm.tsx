@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import styles from './SignUpForm.module.css';
 import Input from '../../Components/Input';
@@ -6,7 +6,14 @@ import Button from '../../Components/Button';
 import { useNavigate } from 'react-router-dom';
 import { Pages } from '../../Pages/Router/Router';
 
-const SignUpForm: FC = () => {
+export interface SignUpFormProps {
+    handleSignUpClick: (email: string, password: string) => void;
+}
+
+const SignUpForm: FC<SignUpFormProps> = ({handleSignUpClick}) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     const navigate = useNavigate();
 
     const redirect = () => {
@@ -23,18 +30,24 @@ const SignUpForm: FC = () => {
 
                         <Input type='email' 
                         className={classNames(styles.signUpFormInput)} 
-                        placeholder='Your Email' />
+                        placeholder='Your Email (must contain a character @)'
+                        value={email}
+                        onChange={(event: any) => setEmail(event.target.value)} />
 
                         <div>Password</div>
 
                         <Input type='password' 
                         className={classNames(styles.signUpFormInputPassword)} 
-                        placeholder='Your Password'/>
+                        placeholder='Your Password (should be at least 6 characters)'
+                        value={password}
+                        onChange={(event: any) => setPassword(event.target.value)} />
 
                         <Button title={'Sign Up'} 
-                        className={classNames(styles.formButtonSignUp)}/>
+                        className={classNames(styles.formButtonSignUp)}
+                        onClick={() => handleSignUpClick(email, password) } />
 
-                        <p>Already have an account? <Button title={'Sign In'} onClick={redirect}
+                        <p>Already have an account? <Button title={'Sign In'} 
+                        onClick={redirect}
                         className={classNames(styles.formButtonSignIn)}/></p>
                     </div>
                 </div>

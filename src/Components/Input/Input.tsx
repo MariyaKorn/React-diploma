@@ -7,15 +7,27 @@ type InputProps = {
     disabled?: boolean;
     placeholder?: string;
     className?: string;
+    value?: string | number;
+    onChange?: any;
+    onKeyDown?: any;
 };
 
-const Input: FC<InputProps> = ({type, disabled, placeholder, className}) => {
+const Input: FC<InputProps> = ({type, 
+        disabled, 
+        placeholder, 
+        className,
+        value,
+        onChange,
+        onKeyDown}) => {
     
 
     return <input type={type}
             disabled={disabled}
             placeholder={placeholder}
             className={classNames(styles.input, className)}
+            value={value}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
             />;
 };
 

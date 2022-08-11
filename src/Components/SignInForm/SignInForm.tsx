@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import styles from './SignInForm.module.css';
 import Input from '../../Components/Input';
@@ -6,7 +6,14 @@ import Button from '../../Components/Button';
 import { useNavigate } from 'react-router-dom';
 import { Pages } from '../../Pages/Router/Router';
 
-const SignInForm: FC = () => {
+export interface SignInFormProps {
+    handleSignInClick: (email: string, password: string) => void;
+}
+
+const SignInForm: FC<SignInFormProps> = ({ handleSignInClick }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
     const navigate = useNavigate();
 
     const redirect = () => {
@@ -23,21 +30,27 @@ const SignInForm: FC = () => {
 
                         <Input type='email' 
                         className={classNames(styles.signInFormInput)} 
-                        placeholder='Your Email' />
+                        placeholder='Your Email'
+                        value={email}
+                        onChange={(event: any) => setEmail(event.target.value)} />
 
                         <div>Password</div>
 
                         <Input type='password' 
                         className={classNames(styles.signInFormInputPassword)} 
-                        placeholder='Your Password'/>
+                        placeholder='Your Password'
+                        value={password}
+                        onChange={(event: any) => setPassword(event.target.value)} />
 
                         <Button title={'Forgot Password?'} 
-                        className={classNames(styles.formButtonForgot)}/>
+                        className={classNames(styles.formButtonForgot)} />
 
                         <Button title={'Sign In'} 
-                        className={classNames(styles.formButtonSignIn)}/>
+                        className={classNames(styles.formButtonSignIn)}
+                        onClick={() => handleSignInClick(email, password)} />
 
-                        <p>Don't have an account? <Button title={'Sign Up'} onClick={redirect}
+                        <p>Don't have an account? <Button title={'Sign Up'} 
+                        onClick={redirect}
                         className={classNames(styles.formButtonSignUp)}/> </p>
                     </div>
                 </div>
