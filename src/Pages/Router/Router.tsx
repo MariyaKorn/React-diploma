@@ -6,10 +6,10 @@ import { getPosts, PostsSelectors } from '../../Redux/reducers/posts';
 import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 import Button from '../../Components/Button';
-// import Main from '../Main';
-// import SignIn from '../SignIn';
-// import Home from '../Home';
-// import SignUp from '../SignUp';
+import Main from '../Main';
+import SignIn from '../SignIn';
+import Home from '../Home';
+import SignUp from '../SignUp';
 
 const MockComponent = () => {
     const postsList = useSelector(PostsSelectors.getPosts);
@@ -56,12 +56,12 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                {/* <Route path={Pages.Home} element={<Home />} />
-                <Route path={Pages.Main} element={<Main />} /> */}
+                <Route path={Pages.Home} element={<Home />} />
+                <Route path={Pages.Main} element={<Main />} />
                 <Route path={Pages.Content} element={<MockComponent />} />
                 <Route path={Pages.Search} element={<MockComponent />} />
-                {/* <Route path={Pages.SignIn} element={<SignIn />} />
-                <Route path={Pages.SignUp} element={<SignUp />} /> */}
+                <Route path={Pages.SignIn} element={<SignIn />} />
+                <Route path={Pages.SignUp} element={<SignUp />} />
                 <Route path='*' element={<Navigate to="/" />} />
             </Routes>
         </BrowserRouter>

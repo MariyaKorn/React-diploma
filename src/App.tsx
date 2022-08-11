@@ -5,9 +5,6 @@ import { Theme } from './Context/themeModeContext';
 import Router from './Pages/Router/Router';
 import store from './Redux/store';
 
-// import styles from './App.module.css';
-// import Button from './Components/Button';
-
 function App() {
   const [theme, setTheme] = useState(Theme.Light);
 

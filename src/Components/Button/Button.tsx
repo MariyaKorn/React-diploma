@@ -6,11 +6,16 @@ type ButtonProps = {
     title: string;
     className?: string;
     onClick?: () => void;
+    disabled?: boolean;
 };
 
-const Button: FC<ButtonProps> = ({title, className, onClick}) => {
+const Button: FC<ButtonProps> = ({title, className, onClick, disabled}) => {
     return (
-        <button onClick={onClick} className={classNames(styles.button, className)}>{title}</button>
+        <button onClick={onClick} 
+        className={classNames(styles.button, className)}
+        disabled={disabled}>
+            {title}
+        </button>
     )
 };
 
