@@ -5,11 +5,12 @@ import Main from '../Main';
 import SignIn from '../SignIn';
 import Home from '../Home';
 import SignUp from '../SignUp';
+import Content from '../../Components/Content';
 
 export enum Pages {
     Home = '/',
     Main = '/main',
-    Content = '/content',
+    Content = '/content/:id',
     Search = '/search',
     SignIn = '/signIn',
     SignUp = '/signUp'
@@ -21,7 +22,7 @@ const Router = () => {
             <Routes>
                 <Route path={Pages.Home} element={<Home />} />
                 <Route path={Pages.Main} element={<Main />} />
-                <Route path={Pages.Content} element={<div />} />
+                <Route path={Pages.Content} element={<Content />} />
                 <Route path={Pages.Search} element={<div />} />
                 <Route path={Pages.SignIn} element={<SignIn />} />
                 <Route path={Pages.SignUp} element={<SignUp />} />
