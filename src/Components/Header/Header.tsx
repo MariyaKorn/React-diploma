@@ -1,13 +1,16 @@
 import React, { FC }  from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import classNames from 'classnames';
 import styles from './Header.module.css';
-import logo from '../../Assets/Images/Logo.png';
-import user from '../../Assets/Images/User.png';
+
 import Button from '../Button';
 import Input from '../Input';
-import { useNavigate } from 'react-router-dom';
 import { Pages } from '../../Pages/Router/Router';
+
 import userName from '../../Assets/Images/UserName.png';
+import logo from '../../Assets/Images/Logo.png';
+import user from '../../Assets/Images/User.png';
 
 const Header: FC = () => {
     const auth = localStorage.getItem('uid');

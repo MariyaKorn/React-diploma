@@ -1,0 +1,13 @@
+.light {
+    background: #e5e5e5;
+    transition: 0.5s;
+    padding: 0 auto 0;
+    position: relative;
+}
+
+.dark {
+    background: #313037;
+    transition: 0.5s;
+    padding: 0 auto 0;
+    position: relative;
+}

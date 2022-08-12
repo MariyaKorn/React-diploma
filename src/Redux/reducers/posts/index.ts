@@ -4,12 +4,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 type InitialStateType = {
     postsList: any[];
     isPostsLoading: boolean;
-}
+};
 
 const initialState: InitialStateType = {
     postsList: [],
     isPostsLoading: false,
-}
+};
 
 const postsSlice = createSlice({
     name: 'posts',

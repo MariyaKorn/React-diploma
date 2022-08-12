@@ -8,25 +8,25 @@ type InitialStateType = {
 };
 
 const initialState: InitialStateType = {
-    email: "",
-    token: "",
-    id: "",
+    email: '',
+    token: '',
+    id: '',
 };
 
 const userSlice = createSlice({
-    name: "user",
+    name: 'user',
     initialState,
     reducers: {
-    setUser: (state: any, action: any) => {
-        state.email = action.payload.email;
-        state.token = action.payload.token;
-        state.id = action.payload.id;
-    },
-    removeUser: (state: any) => {
-        state.email = "";
-        state.token = "";
-        state.id = "";
-    },
+        setUser: (state: any, action: any) => {
+            state.email = action.payload.email;
+            state.token = action.payload.token;
+            state.id = action.payload.id;
+        },
+        removeUser: (state: any) => {
+            state.email = '';
+            state.token = '';
+            state.id = '';
+        },
     },
 });
 

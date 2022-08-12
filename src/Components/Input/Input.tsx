@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import styles from './Input.module.css';
 import classNames from 'classnames';
 
@@ -20,7 +21,6 @@ const Input: FC<InputProps> = ({type,
         onChange,
         onKeyDown}) => {
     
-
     return <input type={type}
             disabled={disabled}
             placeholder={placeholder}

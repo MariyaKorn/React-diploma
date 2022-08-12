@@ -1,15 +1,15 @@
-.toggle-switch {
+.toggleSwitch {
     position: relative;
     display: inline-block;
     width: 32px;
     height: 20px;
 }
 
-.toggle-switch input[type="checkbox"] {
+.toggleSwitch input[type="checkbox"] {
     display: none;
 }
 
-.toggle-switch .switch {
+.toggleSwitch .switch {
     position: absolute;
     cursor: pointer;
     background-color: rgba(49, 48, 55, 0.3);
@@ -21,7 +21,7 @@
     transition: background-color 0.5s ease;
 }
 
-.toggle-switch .switch::before {
+.toggleSwitch .switch::before {
     position: absolute;
     content: "";
     left: 2px;
@@ -33,11 +33,11 @@
     transition: transform 0.5s ease;
 }
 
-.toggle-switch input[type="checkbox"]:checked + .switch::before {
+.toggleSwitch input[type="checkbox"]:checked + .switch::before {
     transform: translateX(12px);
     background-color: #FFFFFF;
 }
 
-.toggle-switch input[type="checkbox"]:checked + .switch {
+.toggleSwitch input[type="checkbox"]:checked + .switch {
     background-color: #6C1BDB;;
 }

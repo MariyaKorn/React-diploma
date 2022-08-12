@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./ToggleSwitch.module.css";
+
+import "./ToggleSwitch.css";
+
 import { Theme, useThemeContext } from "../../Context/themeModeContext";
 
 const ToggleSwitch = () => {
@@ -13,7 +15,7 @@ const ToggleSwitch = () => {
     const onToggle = () => setIsToggled(!isToggled);
 
     return (
-        <label className="toggle-switch">
+        <label className="toggleSwitch">
             <input onClick={() => onClickTheme()} 
             type="checkbox" 
             checked={isToggled} 

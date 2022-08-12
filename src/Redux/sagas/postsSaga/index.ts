@@ -7,7 +7,7 @@ function* getPostsSaga(action: any) {
     const { data, status, problem } = yield call(getAllPostsApi, action.payload);
 
     if(status === 200 && data) {
-        yield put(setPosts(data.results))
+        yield put(setPosts(data))
     } else {
         console.log('ERROR FETCHING POSTS', problem)
     }

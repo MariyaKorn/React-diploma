@@ -1,4 +1,4 @@
-import { UserSelectors } from "../Redux/reducers/users"; 
+import { UserSelectors } from "../Redux/reducers/users";
 import { useSelector } from "react-redux";
 
 const useAuth = () => {

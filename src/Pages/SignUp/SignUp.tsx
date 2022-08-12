@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import Footer from '../../Components/Footer';
-import Header from '../../Components/Header';
-import SignUpForm from '../../Components/SignUpForm';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../Redux/reducers/users';
 import { useNavigate } from 'react-router-dom';
+
+import Footer from '../../Components/Footer';
+import Header from '../../Components/Header';
+import SignUpForm from '../../Components/SignUpForm';
 
 const SignUp: FC = () => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const SignUp: FC = () => {
             <SignUpForm handleSignUpClick={handleRegister} />
             <Footer />
         </>
-    )
-}
+    );
+};
 
 export default SignUp;
