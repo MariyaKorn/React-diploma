@@ -1,0 +1,63 @@
+.contentContainer {
+    background: rgba(49, 48, 55, 0.1);
+    padding: 72px 400px;
+}
+
+.contentNav {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 32px;
+}
+
+.contentNav div {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(49, 48, 55, 0.5);
+}
+
+.contentLink {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #313037;
+    text-decoration: none;
+}
+
+.contentTitle {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+    color: #313037;
+    margin-bottom: 48px;
+}
+
+.contentImg {
+    width: 1120px;
+    height: 518px;
+    border-radius: 16px;
+    margin-bottom: 48px;
+}
+
+.contentText {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    color: #313037;
+    text-align: center;
+    margin-bottom: 145px;
+}
+
+.anotherPosts {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}

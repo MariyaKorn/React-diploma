@@ -6,6 +6,8 @@ import { PostDescription } from "../../Types/PostDescription";
 import Footer from "../Footer";
 import Header from "../Header";
 import PostCard from "../PostCard";
+import classNames from "classnames";
+import styles from './Content.module.css';
 
 const Content: FC = () => {
     const dispatch = useDispatch();
@@ -34,15 +36,15 @@ const Content: FC = () => {
     return (
         <>
         <Header />
-        <div>
-            <div>
-                <Link to={'/main'}>Home</Link>
-                <div>/Post{post?.id}</div>
+        <div className={classNames(styles.contentContainer)}>
+            <div className={classNames(styles.contentNav)}>
+                <Link to={'/main'} className={classNames(styles.contentLink)}>Home</Link>
+                <div>/ Post{post?.id}</div>
             </div>
-            <div>{post?.title}</div>
-            <img src={post?.imageUrl} alt="" />
-            <div>{post?.summary}</div>
-            <div>{anotherPosts}</div>
+            <div className={classNames(styles.contentTitle)}>{post?.title}</div>
+            <img src={post?.imageUrl} alt="content-image" className={classNames(styles.contentImg)} />
+            <div className={classNames(styles.contentText)}>{post?.summary}</div>
+            <div className={classNames(styles.anotherPosts)}>{anotherPosts}</div>
         </div>
         
         <Footer />

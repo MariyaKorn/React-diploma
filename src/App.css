@@ -1,5 +1,5 @@
 .light {
-    background: #e5e5e5;
+    background: rgba(49, 48, 55, 0.1);
     transition: 0.5s;
     padding: 0 auto 0;
     position: relative;

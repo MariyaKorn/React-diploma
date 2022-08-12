@@ -1,3 +1,13 @@
+.title {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+    padding-left: 400px;
+    background: rgba(49, 48, 55, 0.1);
+}
+
 .postsContainer {
     display: flex;
     flex-direction: row;
@@ -5,4 +15,5 @@
     padding: 0 400px;
     gap: 20px;
     row-gap: 40px;
+    background: rgba(49, 48, 55, 0.1);
 }

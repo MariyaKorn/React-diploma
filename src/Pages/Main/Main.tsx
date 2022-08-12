@@ -39,7 +39,7 @@ const Main: FC = () => {
     return (
         <>
         <Header />
-        <div>Blog</div>
+        <div className={classNames(styles.title)}>Blog</div>
         <div className={classNames(styles.postsContainer)}>
             {postsList?.map((post: PostDescription) => (
             <PostCard key={post.id} post={post} />))}

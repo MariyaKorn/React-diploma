@@ -15,9 +15,12 @@ const PostCard: FC<PostCardProps> = ( { post } ) => {
   return (
     <Link to={`/content/${post.id}`}>
       <div className={classNames(styles.postWrapper)}>
-          <img src={post.imageUrl} alt="post-image" />
-          <div>{post.publishedAt}</div>
-          <div>{post.title}</div>
+          <img src={post.imageUrl} alt="post-image"
+          className={classNames(styles.postImg)} />
+          <div className={classNames(styles.postInfo)}>
+            <div className={classNames(styles.postData)}>{post.publishedAt}</div>
+            <div className={classNames(styles.postTitle)}>{post.title}</div>
+          </div>
       </div>
     </Link>
   );
