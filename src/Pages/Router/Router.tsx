@@ -5,7 +5,7 @@ import Main from '../Main';
 import SignIn from '../SignIn';
 import Home from '../Home';
 import SignUp from '../SignUp';
-import Content from '../../Components/Content';
+import Content from '../Content';
 
 export enum Pages {
     Home = '/',

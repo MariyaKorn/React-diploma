@@ -7,6 +7,7 @@ import styles from './Header.module.css';
 import Button from '../Button';
 import Input from '../Input';
 import { Pages } from '../../Pages/Router/Router';
+import { Theme, useThemeContext } from '../../Context/themeModeContext';
 
 import userName from '../../Assets/Images/UserName.png';
 import logo from '../../Assets/Images/Logo.png';
@@ -21,9 +22,16 @@ const Header: FC = () => {
         navigate(Pages.SignIn);
     };
 
+    const redirectToMain = () => {
+        navigate(Pages.Main);
+    };
+
+    const { theme } = useThemeContext();
+    const isThemeLight = theme === Theme.Light;
+
     return (
         <div className={classNames(styles.header)}>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" onClick={redirectToMain}/>
             <div className={classNames(styles.headerSearch)}>
                 <Input type='text' />
                 <i className="fa-solid fa-magnifying-glass"></i>
@@ -31,7 +39,7 @@ const Header: FC = () => {
 
             {!auth && (
                 <div className={classNames(styles.headerSignIn)}>
-                <img src={user} alt="user" />
+                <img src={user} alt="user" onClick={redirect}/>
                 <Button title={'Sign In'} onClick={redirect}/>
             </div>
             )}

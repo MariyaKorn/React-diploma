@@ -5,6 +5,7 @@ import { getPosts, PostsSelectors, setSelectedPost } from '../../Redux/reducers/
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 import PostCard from '../../Components/PostCard';
+import Loader from '../../Components/Loader';
 
 import classNames from 'classnames';
 import { useThemeContext, Theme } from '../../Context/themeModeContext';
@@ -16,7 +17,8 @@ import { useParams } from 'react-router-dom';
 const Main: FC = () => {
 
     const postsList = useSelector(PostsSelectors.getPosts);
-    const post = useSelector(PostsSelectors.getSelectedPost)
+    const post = useSelector(PostsSelectors.getSelectedPost);
+    const isPostsLoading = useSelector(PostsSelectors.getPostsLoading);
     const dispatch = useDispatch();
     const { id } = useParams<{id:string}>();
 
@@ -39,11 +41,13 @@ const Main: FC = () => {
     return (
         <>
         <Header />
-        <div className={classNames(styles.title)}>Blog</div>
+        {isPostsLoading ? 
+        (<div className={classNames(styles.loader)}><Loader /></div>) 
+        : (<><div className={classNames(styles.title)}>Blog</div>
         <div className={classNames(styles.postsContainer)}>
             {postsList?.map((post: PostDescription) => (
             <PostCard key={post.id} post={post} />))}
-        </div>
+        </div></>)}
         <Footer />
         </>
         

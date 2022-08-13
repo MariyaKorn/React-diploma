@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { PostsSelectors, setSelectedPost, getPosts } from "../../Redux/reducers/posts";
 import { PostDescription } from "../../Types/PostDescription";
-import Footer from "../Footer";
-import Header from "../Header";
-import PostCard from "../PostCard";
+import Footer from "../../Components/Footer";
+import Header from "../../Components/Header";
+import PostCard from "../../Components/PostCard";
 import classNames from "classnames";
 import styles from './Content.module.css';
+import Loader from "../../Components/Loader";
 
 const Content: FC = () => {
     const dispatch = useDispatch();
     const post = useSelector(PostsSelectors.getSelectedPost);
+    const isSelectedPostLoading = useSelector(PostsSelectors.getSelectedPostLoading)
     const postsList = useSelector(PostsSelectors.getPosts);
     const { id } = useParams<{ id: string }>();
 
@@ -24,8 +26,10 @@ const Content: FC = () => {
     }, [ ]);
 
     useEffect(() => {
-        dispatch(setSelectedPost(id));
-    }, [ ]);
+        if (id) {
+            dispatch(setSelectedPost(id));
+        }
+    }, [id]);
 
     const anotherPosts = useMemo(() => {
         return postsList
@@ -36,7 +40,9 @@ const Content: FC = () => {
     return (
         <>
         <Header />
-        <div className={classNames(styles.contentContainer)}>
+        {isSelectedPostLoading ? 
+        (<div className={classNames(styles.loader)}><Loader /></div>) 
+        : (<div className={classNames(styles.contentContainer)}>
             <div className={classNames(styles.contentNav)}>
                 <Link to={'/main'} className={classNames(styles.contentLink)}>Home</Link>
                 <div>/ Post{post?.id}</div>
@@ -45,8 +51,7 @@ const Content: FC = () => {
             <img src={post?.imageUrl} alt="content-image" className={classNames(styles.contentImg)} />
             <div className={classNames(styles.contentText)}>{post?.summary}</div>
             <div className={classNames(styles.anotherPosts)}>{anotherPosts}</div>
-        </div>
-        
+        </div>)}
         <Footer />
         </>
 

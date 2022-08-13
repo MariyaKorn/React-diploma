@@ -1,6 +1,6 @@
 import { all, takeLatest, put, call } from "redux-saga/effects";
-import { getAllPostsApi, getSelectedPostApi } from "../../api";
-import { getPosts,  setPosts, setLoadingPosts, setSelectedPost, setSelectedPostLoading } from '../../reducers/posts';
+import { getAllPostsApi, getSelectedPostApi, getPostsCountApi } from "../../api";
+import { getPosts,  setPosts, setLoadingPosts, setSelectedPost, setSelectedPostLoading, setTotalAllPostsCounter } from '../../reducers/posts';
 
 function* getPostsSaga(action: any) {
     yield put(setLoadingPosts(true));
@@ -28,9 +28,23 @@ function* getSelectedPostSaga(action: any) {
     yield put(setSelectedPostLoading(false));
 };
 
+// function* getTotalAllPostsCounterSaga(action: any) {
+//     yield put (setTotalAllPostsCounter(true));
+//     const { data, status, problem } =yield call(getPostsCountApi, action.payload);
+
+//     if (status === 200 && data) {
+//         yield put(setTotalAllPostsCounter(data))
+//     } else {
+//         console.log('ERROR FETCHING POSTS COUNT', problem)
+//     }
+
+//     yield put(setTotalAllPostsCounter(false));
+// };
+
 export default function* postsWatcher() {
     yield all([
         takeLatest(getPosts, getPostsSaga),
         takeLatest(setSelectedPost, getSelectedPostSaga),
+        // takeLatest(setTotalAllPostsCounter, getTotalAllPostsCounterSaga),
     ]);
 };

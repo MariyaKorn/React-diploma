@@ -5,13 +5,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 32px;
-    position: sticky;
-    top: 0;
     background-color: #fff;
 }
 
 .header img {
-    height: 40px;
+    height: 6vh;
     cursor: pointer;
 }
 
@@ -24,6 +22,7 @@
     font-size: 16px;
     line-height: 34px;
     color: #313037;
+    width: 5vw;
 }
 
 .headerSearch {
@@ -32,13 +31,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 10px;
+    margin-right: 2rem;
 }
 
 .headerSignIn {
     display: flex;
     align-items: center;
-    margin-left: 65px;
 }
 
 .headerAuthUser {

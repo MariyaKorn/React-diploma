@@ -8,5 +8,3 @@ export type PostDescription = {
     summary: string,
     publishedAt: string,
 }
-
-export type PostListType = Array<PostDescription>;
