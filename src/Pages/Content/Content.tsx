@@ -7,8 +7,9 @@ import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import PostCard from "../../Components/PostCard";
 import classNames from "classnames";
-import styles from './Content.module.css';
+import './Content.css';
 import Loader from "../../Components/Loader";
+import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 const Content: FC = () => {
     const dispatch = useDispatch();
@@ -19,16 +20,16 @@ const Content: FC = () => {
 
     useEffect(() => {
         dispatch(getPosts({
-            _limit: 30,
-            _sort: '',
-            _start: 0,
+            _limit: 12,
         }));
+        window.scrollTo(0, 0);
     }, [ ]);
 
     useEffect(() => {
         if (id) {
             dispatch(setSelectedPost(id));
-        }
+        };
+        window.scrollTo(0, 0);
     }, [id]);
 
     const anotherPosts = useMemo(() => {
@@ -37,20 +38,48 @@ const Content: FC = () => {
         .map((post: PostDescription) => <PostCard key={id} post={post} />)
     }, [postsList]);
 
+    const { theme } = useThemeContext();
+
+    const isThemeLight = theme === Theme.Light;
+
     return (
         <>
         <Header />
         {isSelectedPostLoading ? 
-        (<div className={classNames(styles.loader)}><Loader /></div>) 
-        : (<div className={classNames(styles.contentContainer)}>
-            <div className={classNames(styles.contentNav)}>
-                <Link to={'/main'} className={classNames(styles.contentLink)}>Home</Link>
+        (<div className={classNames({
+            ['loaderLight']: isThemeLight,
+            ['loaderDark']: !isThemeLight,
+            })}><Loader /></div>) 
+        : (<div className={classNames({
+            ['contentContainerLight']: isThemeLight,
+            ['contentContainerDark']: !isThemeLight,
+            })}>
+            <div className={classNames({
+            ['contentNavLight']: isThemeLight,
+            ['contentNavDark']: !isThemeLight,
+            })}>
+                <Link to={'/main'} className={classNames({
+            ['contentLinkLight']: isThemeLight,
+            ['contentLinkDark']: !isThemeLight,
+            })}>Home</Link>
                 <div>/ Post{post?.id}</div>
             </div>
-            <div className={classNames(styles.contentTitle)}>{post?.title}</div>
-            <img src={post?.imageUrl} alt="content-image" className={classNames(styles.contentImg)} />
-            <div className={classNames(styles.contentText)}>{post?.summary}</div>
-            <div className={classNames(styles.anotherPosts)}>{anotherPosts}</div>
+            <div className={classNames({
+            ['contentTitleLight']: isThemeLight,
+            ['contentTitleDark']: !isThemeLight,
+            })}>{post?.title}</div>
+            <img src={post?.imageUrl} alt="content-image" className={classNames({
+            ['contentImgLight']: isThemeLight,
+            ['contentImgDark']: !isThemeLight,
+            })} />
+            <div className={classNames({
+            ['contentTextLight']: isThemeLight,
+            ['contentTextDark']: !isThemeLight,
+            })}>{post?.summary}</div>
+            <div className={classNames({
+            ['anotherPostsLight']: isThemeLight,
+            ['anotherPostsDark']: !isThemeLight,
+            })}>{anotherPosts}</div>
         </div>)}
         <Footer />
         </>

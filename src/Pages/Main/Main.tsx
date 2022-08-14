@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { useThemeContext, Theme } from '../../Context/themeModeContext';
 import { PostDescription } from '../../Types/PostDescription';
 
-import styles from './Main.module.css';
+import './Main.css';
 import { useParams } from 'react-router-dom';
 
 const Main: FC = () => {
@@ -19,9 +19,9 @@ const Main: FC = () => {
     const postsList = useSelector(PostsSelectors.getPosts);
     const post = useSelector(PostsSelectors.getSelectedPost);
     const isPostsLoading = useSelector(PostsSelectors.getPostsLoading);
-    const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
+    
     const dispatch = useDispatch();
-    console.log(totalCount);
+
     const { id } = useParams<{id:string}>();
 
     useEffect(() => {
@@ -34,6 +34,9 @@ const Main: FC = () => {
         dispatch(setSelectedPost(id))
     }, [])
 
+    const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
+    console.log(totalCount);
+
     const { theme } = useThemeContext();
 
     const isThemeLight = theme === Theme.Light;
@@ -42,9 +45,18 @@ const Main: FC = () => {
         <>
         <Header />
         {isPostsLoading ? 
-        (<div className={classNames(styles.loader)}><Loader /></div>) 
-        : (<><div className={classNames(styles.title)}>Blog</div>
-        <div className={classNames(styles.postsContainer)}>
+        (<div className={classNames({
+            ['loaderLight']: isThemeLight,
+            ['loaderDark']: !isThemeLight,
+            })} ><Loader /></div>) 
+        : (<><div className={classNames({
+            ['titleLight']: isThemeLight,
+            ['titleDark']: !isThemeLight,
+            })}>Blog</div>
+        <div className={classNames({
+            ['postsContainerLight']: isThemeLight,
+            ['postsContainerDark']: !isThemeLight,
+            })}>
             {postsList?.map((post: PostDescription) => (
             <PostCard key={post.id} post={post} />))}
         </div></>)}

@@ -1,0 +1,63 @@
+.postWrapperLight {
+    width: 18vw;
+    height: 70vh;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.postWrapperDark {
+    width: 18vw;
+    height: 70vh;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.postImgLight, .postImgDark {
+    width: 18vw;
+    height: 30vh;
+    border-radius: 16px;
+    margin-bottom: 32px;
+}
+
+.postInfoLight, .postInfoDark {
+    padding: 0 32px 32px 32px;
+}
+
+.postDataLight {
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(49, 48, 55, 0.5);
+}
+
+.postDataDark {
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+.postTitleLight {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #313037;
+}
+
+.postTitleDark {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #fff;
+}

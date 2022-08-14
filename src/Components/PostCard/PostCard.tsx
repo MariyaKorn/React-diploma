@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { Link } from "react-router-dom";
 
 import { PostDescription } from '../../Types/PostDescription';
+import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
-import styles from './PostCard.module.css';
+import './PostCard.css';
 import classNames from 'classnames';
 
 type PostCardProps = {
@@ -11,15 +12,33 @@ type PostCardProps = {
   };
 
 const PostCard: FC<PostCardProps> = ( { post } ) => {
+    const { theme } = useThemeContext();
+
+    const isThemeLight = theme === Theme.Light;
     
   return (
     <Link to={`/content/${post.id}`}>
-      <div className={classNames(styles.postWrapper)}>
+      <div className={classNames({
+            ['postWrapperLight']: isThemeLight,
+            ['postWrapperDark']: !isThemeLight,
+            })}>
           <img src={post.imageUrl} alt="post-image"
-          className={classNames(styles.postImg)} />
-          <div className={classNames(styles.postInfo)}>
-            <div className={classNames(styles.postData)}>{post.publishedAt}</div>
-            <div className={classNames(styles.postTitle)}>{post.title}</div>
+          className={classNames({
+            ['postImgLight']: isThemeLight,
+            ['postImgDark']: !isThemeLight,
+            })}/>
+          <div className={classNames({
+            ['postInfoLight']: isThemeLight,
+            ['postInfoDark']: !isThemeLight,
+            })}>
+            <div className={classNames({
+            ['postDataLight']: isThemeLight,
+            ['postDataDark']: !isThemeLight,
+            })}>{post.publishedAt}</div>
+            <div className={classNames({
+            ['postTitleLight']: isThemeLight,
+            ['postTitleDark']: !isThemeLight,
+            })}>{post.title}</div>
           </div>
       </div>
     </Link>

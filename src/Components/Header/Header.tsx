@@ -2,7 +2,7 @@ import React, { FC }  from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import classNames from 'classnames';
-import styles from './Header.module.css';
+import './Header.css';
 
 import Button from '../Button';
 import Input from '../Input';
@@ -30,22 +30,35 @@ const Header: FC = () => {
     const isThemeLight = theme === Theme.Light;
 
     return (
-        <div className={classNames(styles.header)}>
+        <div className={classNames({
+            ['headerLight']: isThemeLight,
+            ['headerDark']: !isThemeLight,
+        })}>
             <img src={logo} alt="logo" onClick={redirectToMain}/>
-            <div className={classNames(styles.headerSearch)}>
+            <div className={classNames({
+            ['headerSearchLight']: isThemeLight,
+            ['headerSearchDark']: !isThemeLight,
+        })}>
                 <Input type='text' />
                 <i className="fa-solid fa-magnifying-glass"></i>
             </div>
-
+            
             {!auth && (
-                <div className={classNames(styles.headerSignIn)}>
+                <div className={classNames({
+                    ['headerSignInLight']: isThemeLight,
+                    ['headerSignInDark']: !isThemeLight,})}>
                 <img src={user} alt="user" onClick={redirect}/>
-                <Button title={'Sign In'} onClick={redirect}/>
+                <Button title={'Sign In'} onClick={redirect} 
+                    className={classNames({
+                    ['headerSignInButtonLight']: isThemeLight,
+                    ['headerSignInButtonDark']: !isThemeLight,})}/>
             </div>
             )}
 
             {auth && (
-            <div className={classNames(styles.headerAuthUser)}>
+            <div className={classNames({
+                ['headerAuthUserLight']: isThemeLight,
+                ['headerAuthUserDark']: !isThemeLight,})}>
                 <img src={userName} alt="userName" />
                 <div>Artem Malkin</div>
             </div>)}

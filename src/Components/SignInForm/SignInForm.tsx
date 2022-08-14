@@ -2,11 +2,12 @@ import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import classNames from 'classnames';
-import styles from './SignInForm.module.css';
+import './SignInForm.css';
 
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 import { Pages } from '../../Pages/Router/Router';
+import { Theme, useThemeContext } from '../../Context/themeModeContext';
 
 
 export interface SignInFormProps {
@@ -23,16 +24,28 @@ const SignInForm: FC<SignInFormProps> = ({ handleSignInClick }) => {
         navigate(Pages.SignUp);
     };
 
+    const { theme } = useThemeContext();
+    const isThemeLight = theme === Theme.Light;
+
     return (
-        <div className={classNames(styles.signInWrapper)}>
+        <div className={classNames({
+            ['signInWrapperLight']: isThemeLight,
+            ['signInWrapperDark']: !isThemeLight,
+        })}>
             <h1>Sign In</h1>
 
             <div>
-                <div className={classNames(styles.signInForm)}>
+                <div className={classNames({
+                ['signInFormLight']: isThemeLight,
+                ['signInFormDark']: !isThemeLight,
+                })}>    
                     <div>Email</div>
 
                     <Input type='email' 
-                    className={classNames(styles.signInFormInput)} 
+                    className={classNames({
+                    ['signInFormInputLight']: isThemeLight,
+                    ['signInFormInputDark']: !isThemeLight,
+                    })} 
                     placeholder='Your Email'
                     value={email}
                     onChange={(event: any) => setEmail(event.target.value)} />
@@ -40,21 +53,33 @@ const SignInForm: FC<SignInFormProps> = ({ handleSignInClick }) => {
                     <div>Password</div>
 
                     <Input type='password' 
-                    className={classNames(styles.signInFormInputPassword)} 
+                    className={classNames({
+                    ['signInFormInputPasswordLight']: isThemeLight,
+                    ['signInFormInputPasswordDark']: !isThemeLight,
+                    })}
                     placeholder='Your Password'
                     value={password}
                     onChange={(event: any) => setPassword(event.target.value)} />
 
                     <Button title={'Forgot Password?'} 
-                    className={classNames(styles.formButtonForgot)} />
+                    className={classNames({
+                    ['formButtonForgotLight']: isThemeLight,
+                    ['formButtonForgotDark']: !isThemeLight,
+                    })} />
 
                     <Button title={'Sign In'} 
-                    className={classNames(styles.formButtonSignIn)}
+                    className={classNames({
+                    ['formButtonSignInnLight']: isThemeLight,
+                    ['formButtonSignInnDark']: !isThemeLight,
+                    })}
                     onClick={() => handleSignInClick(email, password)} />
 
                     <p>Don't have an account? <Button title={'Sign Up'} 
                     onClick={redirect}
-                    className={classNames(styles.formButtonSignUp)}/> </p>
+                    className={classNames({
+                    ['formButtonSignUppLight']: isThemeLight,
+                    ['formButtonSignUppDark']: !isThemeLight,
+                    })} /> </p>
                 </div>
             </div>
         </div>

@@ -1,16 +1,13 @@
 .light {
     background-color: rgba(49, 48, 55, 0.1);
     transition: 0.5s;
-    padding: 0 auto 0;
-    position: relative;
 }
 
 .dark {
     background: #313037;
     transition: 0.5s;
-    padding: 0 auto 0;
-    position: relative;
 }
+
 
 /* Footer */
 .footerTextLight {

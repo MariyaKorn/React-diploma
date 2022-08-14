@@ -1,0 +1,109 @@
+.headerLight {
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background-color: #fff;
+}
+
+.headerLight img {
+    height: 6vh;
+    cursor: pointer;
+}
+
+.headerDark {
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.headerDark img {
+    height: 6vh;
+    cursor: pointer;
+}
+
+.headerSearchLight {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 2rem;
+}
+
+.headerSearchDark {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 2rem;
+}
+
+.headerSignInLight {
+    display: flex;
+    align-items: center;
+}
+
+.headerSignInDark {
+    display: flex;
+    align-items: center;
+}
+
+.headerSignInButtonLight {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    color: #313037;
+    width: 5vw;
+}
+
+.headerSignInButtonDark {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    color: #fff;
+    width: 5vw;
+}
+
+.headerAuthUserLight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    color: #313037;
+}
+
+.headerAuthUserDark {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    color: #fff;
+}
