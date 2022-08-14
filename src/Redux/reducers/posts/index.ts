@@ -47,7 +47,7 @@ export const {
     setPosts, 
     setSelectedPost, 
     setSelectedPostLoading ,
-    setTotalAllPostsCounter
+    setTotalAllPostsCounter,
 } = postsSlice.actions;
 
 const reducer = postsSlice.reducer;

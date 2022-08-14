@@ -28,23 +28,23 @@ function* getSelectedPostSaga(action: any) {
     yield put(setSelectedPostLoading(false));
 };
 
-// function* getTotalAllPostsCounterSaga(action: any) {
-//     yield put (setTotalAllPostsCounter(true));
-//     const { data, status, problem } =yield call(getPostsCountApi, action.payload);
+function* getTotalAllPostsCounterSaga(action: any) {
+    yield put(setLoadingPosts(true));
+    const { data, status, problem } = yield call(getPostsCountApi, action.payload);
 
-//     if (status === 200 && data) {
-//         yield put(setTotalAllPostsCounter(data))
-//     } else {
-//         console.log('ERROR FETCHING POSTS COUNT', problem)
-//     }
+    if (status === 200 && data) {
+        yield put(setTotalAllPostsCounter(data))
+    } else {
+        console.log('ERROR FETCHING POSTS COUNT', problem)
+    }
 
-//     yield put(setTotalAllPostsCounter(false));
-// };
+    yield put(setLoadingPosts(false));
+};
 
 export default function* postsWatcher() {
     yield all([
         takeLatest(getPosts, getPostsSaga),
         takeLatest(setSelectedPost, getSelectedPostSaga),
-        // takeLatest(setTotalAllPostsCounter, getTotalAllPostsCounterSaga),
+        takeLatest(setTotalAllPostsCounter, getTotalAllPostsCounterSaga),
     ]);
 };

@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPosts, PostsSelectors, setSelectedPost } from '../../Redux/reducers/posts';
+import { getPosts, PostsSelectors, setSelectedPost, setTotalAllPostsCounter } from '../../Redux/reducers/posts';
 
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
@@ -19,14 +19,14 @@ const Main: FC = () => {
     const postsList = useSelector(PostsSelectors.getPosts);
     const post = useSelector(PostsSelectors.getSelectedPost);
     const isPostsLoading = useSelector(PostsSelectors.getPostsLoading);
+    const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
     const dispatch = useDispatch();
+    console.log(totalCount);
     const { id } = useParams<{id:string}>();
 
     useEffect(() => {
         dispatch(getPosts({
-            _limit: 30,
-            _sort: '',
-            _start: 0,
+            _limit: 12
         }));
     }, [ ])
 

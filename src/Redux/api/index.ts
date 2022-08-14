@@ -5,20 +5,17 @@ const API = create({
 });
 
 const getAllPostsApi = ({
-    _limit = 30,
-    _sort = '',
-    _start = 0
-
+    _limit = 12,
 }) => {
-    return API.get("/articles/", {_limit, _sort, _start});
+    return API.get("/articles/", {_limit});
 };
 
 const getSelectedPostApi = (id: string) => {
     return API.get(`/articles/${id}/`);
 };
 
-const getPostsCountApi = () => {
-    return API.get('/articles/count/');
+const getPostsCountApi = ({}) => {
+    return API.get("/articles/count/");
 };
 
 export { getAllPostsApi, getSelectedPostApi, getPostsCountApi };

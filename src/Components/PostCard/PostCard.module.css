@@ -1,24 +1,15 @@
 .postWrapper {
-    width: 352px;
-    height: 388px;
+    width: 18vw;
+    height: 70vh;
     border-radius: 16px;
     background: #fff;
 }
 
 .postImg {
-    width: 352px;
-    height: 208px;
+    width: 18vw;
+    height: 30vh;
     border-radius: 16px;
     margin-bottom: 32px;
-    position: relative;
-    object-fit: cover;
-}
-
-.postImg::before {
-    position: absolute;
-    z-index: 10;
-    content: '';
-    background: linear-gradient(rgba(77, 10, 199, 0.6), rgba(145, 46, 242, 0.6));
 }
 
 .postInfo {

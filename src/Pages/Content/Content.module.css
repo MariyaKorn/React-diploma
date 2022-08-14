@@ -1,6 +1,6 @@
 .contentContainer {
     background: rgba(49, 48, 55, 0.1);
-    padding: 72px 400px;
+    padding: 72px 21%;
 }
 
 .contentNav {
@@ -39,7 +39,7 @@
 }
 
 .contentImg {
-    width: 1120px;
+    width: 100%;
     height: 518px;
     border-radius: 16px;
     margin-bottom: 48px;

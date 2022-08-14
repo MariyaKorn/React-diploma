@@ -33,7 +33,7 @@ const Content: FC = () => {
 
     const anotherPosts = useMemo(() => {
         return postsList
-        ?.slice(0, 3)
+        ?.slice(5, 8)
         .map((post: PostDescription) => <PostCard key={id} post={post} />)
     }, [postsList]);
 
