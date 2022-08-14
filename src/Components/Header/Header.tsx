@@ -47,7 +47,7 @@ const Header: FC = () => {
                 <div className={classNames({
                     ['headerSignInLight']: isThemeLight,
                     ['headerSignInDark']: !isThemeLight,})}>
-                <img src={user} alt="user" onClick={redirect}/>
+                <img src={user} alt="user" onClick={redirect} className='user'/>
                 <Button title={'Sign In'} onClick={redirect} 
                     className={classNames({
                     ['headerSignInButtonLight']: isThemeLight,

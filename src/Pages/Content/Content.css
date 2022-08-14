@@ -130,3 +130,36 @@
     flex-direction: row;
     gap: 32px;
 }
+
+@media only screen and (max-width: 1024px) {
+    .contentTitleLight, .contentTitleDark {
+        font-size: 36px;
+        line-height: 84px;
+    }
+
+    .contentImgLight, .contentImgDark {
+        width: 100%;
+        height: 359px;
+    }
+
+    .anotherPostsLight, .anotherPostsDark {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .contentContainerLight, .contentContainerDark {
+        padding: 50px 10%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .contentTitleLight, .contentTitleDark {
+        font-size: 32px;
+        line-height: 48px;
+    }
+
+    .contentImgLight, .contentImgDark {
+        height: 224px;
+    }
+}

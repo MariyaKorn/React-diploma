@@ -107,3 +107,39 @@
     line-height: 34px;
     color: #fff;
 }
+
+@media only screen and (max-width: 1440px) {
+    .headerLight, .headerDark {
+        height: 80px;
+    }
+
+    .headerLight img, .headerDark img {
+        height: 5vh;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .headerLight, .headerDark {
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .headerLight, .headerDark {
+        padding: 0 16px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .user {
+        display: none;
+    }
+
+    .headerSearchLight, .headerSearchDark {
+        display: none;
+    }
+
+    .headerSignInButtonLight, .headerSignInButtonDark {
+        display: none;
+    }
+}

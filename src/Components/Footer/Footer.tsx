@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import classNames from 'classnames';
-import styles from './Footer.module.css';
+import './Footer.css';
 
 import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
@@ -12,12 +12,18 @@ const Footer: FC = () => {
     const isThemeLight = theme === Theme.Light;
 
     return (
-        <div className={classNames(styles.footer)}>
+        <div className={classNames({
+            ['footerLight']: isThemeLight,
+            ['footerDark']: !isThemeLight,
+        })}>
             <div className={classNames({
                 ['footerTextLight']: isThemeLight,
                 ['footerTextDark']: !isThemeLight,
             })}>© 2022 Blogologo</div>
-            <div className={classNames(styles.toggleWrapper)}>
+            <div className={classNames({
+                ['toggleWrapperLight']: isThemeLight,
+                ['toggleWrapperDark']: !isThemeLight,
+            })}>
                 <div className={classNames({
                 ['footerTextLight']: isThemeLight,
                 ['footerTextDark']: !isThemeLight,

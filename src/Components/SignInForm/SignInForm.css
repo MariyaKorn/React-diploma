@@ -215,3 +215,46 @@
     color: #6C1BDB;
     padding: 0;
 }
+
+@media only screen and (max-width: 1024px) {
+    .signInWrapperLight h1, .signInWrapperDark h1 {
+        margin-right: 600px;
+        font-size: 48px;
+    }
+
+    .signInFormLight, .signInFormDark {
+        width: 500px;
+    }
+
+    .formButtonSignInnLight, .formButtonSignInnDark {
+        width: 450px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .signInWrapperLight h1, .signInWrapperDark h1 {
+        margin-right: 450px;
+        font-size: 48px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .signInWrapperLight, .signInWrapperDark {
+        gap: 30px;
+    }
+
+    .signInWrapperLight h1, .signInWrapperDark h1 {
+        margin-right: 130px;
+        font-size: 32px;
+    }
+
+    .signInFormLight, .signInFormDark {
+        width: 272px;
+    }
+
+    .formButtonSignInnLight, .formButtonSignInnDark {
+        width: 224px;
+        height: 50px;
+    }
+}

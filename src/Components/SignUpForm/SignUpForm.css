@@ -187,3 +187,51 @@
     color: #6C1BDB;
     padding: 0;
 }
+
+@media only screen and (max-width: 1024px) {
+    .signUpWrapperLight h1, .signUpWrapperDark h1 {
+        margin-right: 600px;
+        font-size: 48px;
+    }
+
+    .signUpFormLight, .signUpFormDark {
+        width: 500px;
+    }
+
+    .formButtonSignUpLight, .formButtonSignUpDark {
+        width: 450px;
+        height: 50px;
+        margin-top: 60px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .signUpWrapperLight h1, .signUpWrapperDark h1 {
+        margin-right: 450px;
+        font-size: 48px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .signUpWrapperLight, .signUpWrapperDark {
+        gap: 30px;
+    }
+
+    .signUpWrapperLight h1, .signUpWrapperDark h1 {
+        margin-right: 130px;
+        font-size: 32px;
+    }
+
+    .signUpFormLight, .signUpFormDark {
+        width: 272px;
+    }
+
+    .formButtonSignUpLight, .formButtonSignUpDark {
+        width: 224px;
+        height: 50px;
+    }
+
+    ::placeholder {
+        font-size: 10px;
+    }
+}

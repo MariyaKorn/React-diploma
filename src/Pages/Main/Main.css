@@ -57,3 +57,30 @@
     row-gap: 40px;
     background: rgba(49, 48, 55, 0.1);
 }
+
+@media only screen and (max-width: 1024px) {
+    .titleLight, .titleDark { 
+        padding: 50px 0 30px 18%;
+    }
+    .postsContainerLight, .postsContainerDark {
+        padding: 0 18%;
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .titleLight, .titleDark { 
+        padding: 30px 0 30px 10%;
+    }
+    .postsContainerLight, .postsContainerDark {
+        padding: 0 10%;
+        gap: 55px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .titleLight, .titleDark { 
+        padding: 30px 0 15px 10%;
+        font-size: 32px;
+    }
+}

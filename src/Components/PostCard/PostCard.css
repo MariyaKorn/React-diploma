@@ -61,3 +61,40 @@
     line-height: 28px;
     color: #fff;
 }
+
+@media only screen and (max-width: 1024px) {
+    .postWrapperLight, .postWrapperDark {
+        width: 30vw;
+        height: 70vh;
+    }
+
+    .postImgLight, .postImgDark {
+        width: 30vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .postWrapperLight, .postWrapperDark {
+        width: 35vw;
+        height: 70vh;
+    }
+
+    .postImgLight, .postImgDark {
+        width: 35vw;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .postWrapperLight, .postWrapperDark {
+        width: 75vw;
+        height: 70vh;
+    }
+
+    .postImgLight, .postImgDark {
+        width: 75vw;
+    }
+
+    .postInfoLight, .postInfoDark {
+        padding: 0 20px 20px 20px;
+    }
+}

@@ -12,3 +12,23 @@
     border: none;
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+@media only screen and (max-width: 1440px) {
+    .inputLight, .inputDark {
+        height: 80px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .inputLight, .inputDark {
+        height: 60px;
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .inputLight, .inputDark {
+        width: 224px;
+        padding-left: 10px;
+    }
+}
