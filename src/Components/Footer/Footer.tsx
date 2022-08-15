@@ -10,12 +10,11 @@ import ToggleSwitch from '../ToggleSwitch';
 const Footer: FC = () => {
     const { theme } = useThemeContext();
     const isThemeLight = theme === Theme.Light;
-
     return (
         <div className={classNames({
             ['footerLight']: isThemeLight,
             ['footerDark']: !isThemeLight,
-        })}>
+            })}>
             <div className={classNames({
                 ['footerTextLight']: isThemeLight,
                 ['footerTextDark']: !isThemeLight,

@@ -15,7 +15,7 @@ const getSelectedPostApi = (id: string) => {
 };
 
 const getPostsCountApi = ({}) => {
-    return API.get("/articles/count/");
+    return API.get("/articles/count");
 };
 
 export { getAllPostsApi, getSelectedPostApi, getPostsCountApi };

@@ -9,7 +9,7 @@ const ToggleSwitch = () => {
 
     const onClickTheme = () => {
         onChangeTheme(theme === "light" ? Theme.Dark : Theme.Light);
-};
+    };
 
     const [isToggled, setIsToggled] = useState(false);
     const onToggle = () => setIsToggled(!isToggled);

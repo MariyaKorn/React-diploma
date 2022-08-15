@@ -24,6 +24,12 @@ const Main: FC = () => {
 
     const { id } = useParams<{id:string}>();
 
+    // const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
+    // console.log(totalCount);
+    // useEffect(() => {
+    //     dispatch(setTotalAllPostsCounter({}))
+    // }, [])
+
     useEffect(() => {
         dispatch(getPosts({
             _limit: 12
@@ -33,9 +39,6 @@ const Main: FC = () => {
     useEffect(() => {
         dispatch(setSelectedPost(id))
     }, [])
-
-    const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
-    console.log(totalCount);
 
     const { theme } = useThemeContext();
     const isThemeLight = theme === Theme.Light;
