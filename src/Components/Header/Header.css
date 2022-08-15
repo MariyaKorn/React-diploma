@@ -131,6 +131,11 @@
     .inputLight, .inputDark {
         height: 80px;
     }
+
+    .headerAuthUserLight div, .headerAuthUserDark div {
+        font-size: 14px;
+        line-height: 15px;
+    }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -141,6 +146,10 @@
     .inputLight, .inputDark {
         height: 60px;
         width: 65vw;
+    }
+
+    .headerAuthUserLight div, .headerAuthUserDark div {
+        font-size: 10px;
     }
 }
 
@@ -156,6 +165,11 @@
     .headerSearchLight, .headerSearchDark {
         margin-right: 1rem;
     }
+
+    .headerAuthUserLight div, .headerAuthUserDark div {
+        font-size: 8px;
+        line-height: 15px;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -168,6 +182,10 @@
     }
 
     .headerSignInButtonLight, .headerSignInButtonDark {
+        display: none;
+    }
+
+    .headerAuthUserLight, .headerAuthUserDark {
         display: none;
     }
 }
