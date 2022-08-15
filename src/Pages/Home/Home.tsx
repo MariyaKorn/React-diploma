@@ -9,6 +9,7 @@ import { Pages } from '../Router/Router';
 
 import styles from './Home.module.css';
 import classNames from 'classnames';
+import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 const Home: FC = () => {
 
@@ -17,6 +18,9 @@ const Home: FC = () => {
     const redirect = () => {
         navigate(Pages.SignIn);
     };
+
+    const { theme } = useThemeContext();
+    const isThemeLight = theme === Theme.Light;
     
     return (
         <>

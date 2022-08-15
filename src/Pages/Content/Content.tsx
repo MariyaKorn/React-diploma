@@ -39,7 +39,6 @@ const Content: FC = () => {
     }, [postsList]);
 
     const { theme } = useThemeContext();
-
     const isThemeLight = theme === Theme.Light;
 
     return (

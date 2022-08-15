@@ -38,7 +38,6 @@ const Main: FC = () => {
     console.log(totalCount);
 
     const { theme } = useThemeContext();
-
     const isThemeLight = theme === Theme.Light;
     
     return (

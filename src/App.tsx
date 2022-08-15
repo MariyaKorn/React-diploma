@@ -20,8 +20,9 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeModeProvider theme={theme} onChangeTheme={onChangeTheme}>
-        <div className={classNames({["light"]: isThemeLight,
-                        ["dark"]: !isThemeLight,})}>
+        <div className={classNames({ 
+            ["light"]: isThemeLight,
+            ["dark"]: !isThemeLight,})}>
           <Router />
         </div>
       </ThemeModeProvider>

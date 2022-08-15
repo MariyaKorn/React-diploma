@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import './Input.css';
+import styles from './Input.module.css';
 import classNames from 'classnames';
 import { Theme, useThemeContext } from '../../Context/themeModeContext';
 
@@ -28,10 +28,7 @@ const Input: FC<InputProps> = ({type,
     return <input type={type}
             disabled={disabled}
             placeholder={placeholder}
-            className={classNames({
-                ['inputLight']: isThemeLight,
-                ['inputDark']: !isThemeLight,
-            })}
+            className={classNames(styles.input, className)}
             value={value}
             onChange={onChange}
             onKeyDown={onKeyDown}

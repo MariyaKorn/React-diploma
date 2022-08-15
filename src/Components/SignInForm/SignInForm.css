@@ -107,6 +107,8 @@
     height: 56px;
     padding: 0 0 0 20px;
     margin-bottom: 40px;
+    border: 1px solid rgba(49, 48, 55, 0.1);
+    border-radius: 4px;
 }
 
 .signInFormInputDark {
@@ -114,6 +116,9 @@
     height: 56px;
     padding: 0 0 0 20px;
     margin-bottom: 40px;
+    border: 1px solid rgba(49, 48, 55, 0.1);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .signInFormInputPasswordLight {
@@ -121,6 +126,8 @@
     height: 56px;
     padding: 0 0 0 20px;
     margin-bottom: 16px;
+    border: 1px solid rgba(49, 48, 55, 0.1);
+    border-radius: 4px;
 }
 
 .signInFormInputPasswordDark {
@@ -128,6 +135,9 @@
     height: 56px;
     padding: 0 0 0 20px;
     margin-bottom: 16px;
+    border: 1px solid rgba(49, 48, 55, 0.1);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .formButtonForgotLight {
@@ -216,9 +226,15 @@
     padding: 0;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1440px) {
     .signInWrapperLight h1, .signInWrapperDark h1 {
         margin-right: 600px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .signInWrapperLight h1, .signInWrapperDark h1 {
+        margin-right: 500px;
         font-size: 48px;
     }
 
@@ -230,12 +246,20 @@
         width: 450px;
         height: 50px;
     }
+
+    .signInFormInputLight, .signInFormInputDark, .signInFormInputPasswordLight, .signInFormInputPasswordDark {
+        width: 450px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .signInWrapperLight h1, .signInWrapperDark h1 {
-        margin-right: 450px;
+        margin-right: 400px;
         font-size: 48px;
+    }
+
+    .signInFormInputLight, .signInFormInputDark, .signInFormInputPasswordLight, .signInFormInputPasswordDark {
+        width: 450px;
     }
 }
 
@@ -245,16 +269,25 @@
     }
 
     .signInWrapperLight h1, .signInWrapperDark h1 {
-        margin-right: 130px;
+        margin-right: 120px;
         font-size: 32px;
     }
 
     .signInFormLight, .signInFormDark {
-        width: 272px;
+        width: 220px;
+        padding: 15px;
     }
 
     .formButtonSignInnLight, .formButtonSignInnDark {
-        width: 224px;
+        width: 205px;
         height: 50px;
+    }
+
+    .signInFormInputLight, .signInFormInputDark, .signInFormInputPasswordLight, .signInFormInputPasswordDark {
+        width: 205px;
+    }
+
+    .signInFormLight div, .signInFormDark div {
+        text-align: start;
     }
 }

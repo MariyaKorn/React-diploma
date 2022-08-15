@@ -58,12 +58,22 @@
     background: rgba(49, 48, 55, 0.1);
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1440px) {
     .titleLight, .titleDark { 
-        padding: 50px 0 30px 18%;
+        padding: 50px 0 30px 15%;
     }
     .postsContainerLight, .postsContainerDark {
-        padding: 0 18%;
+        padding: 0 15%;
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .titleLight, .titleDark { 
+        padding: 50px 0 30px 15%;
+    }
+    .postsContainerLight, .postsContainerDark {
+        padding: 0 15%;
         gap: 30px;
     }
 }
@@ -74,7 +84,7 @@
     }
     .postsContainerLight, .postsContainerDark {
         padding: 0 10%;
-        gap: 55px;
+        gap: 45px;
     }
 }
 

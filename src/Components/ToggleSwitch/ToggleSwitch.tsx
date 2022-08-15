@@ -14,6 +14,7 @@ const ToggleSwitch = () => {
     const [isToggled, setIsToggled] = useState(false);
     const onToggle = () => setIsToggled(!isToggled);
 
+
     return (
         <label className="toggleSwitch">
             <input onClick={() => onClickTheme()} 

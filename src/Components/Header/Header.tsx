@@ -39,7 +39,10 @@ const Header: FC = () => {
             ['headerSearchLight']: isThemeLight,
             ['headerSearchDark']: !isThemeLight,
         })}>
-                <Input type='text' />
+                <Input type='search' className={classNames({
+                ['inputLight']: isThemeLight,
+                ['inputDark']: !isThemeLight,
+            })} />
                 <i className="fa-solid fa-magnifying-glass"></i>
             </div>
             

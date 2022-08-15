@@ -46,6 +46,21 @@
     margin-right: 2rem;
 }
 
+.inputLight {
+    height: 96px;
+    width: 70vw;
+    padding-left: 32px;
+    border: none;
+}
+
+.inputDark {
+    height: 96px;
+    width: 70vw;
+    padding-left: 32px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 .headerSignInLight {
     display: flex;
     align-items: center;
@@ -113,8 +128,8 @@
         height: 80px;
     }
 
-    .headerLight img, .headerDark img {
-        height: 5vh;
+    .inputLight, .inputDark {
+        height: 80px;
     }
 }
 
@@ -122,11 +137,24 @@
     .headerLight, .headerDark {
         height: 60px;
     }
+
+    .inputLight, .inputDark {
+        height: 60px;
+        width: 65vw;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .headerLight, .headerDark {
         padding: 0 16px;
+    }
+
+    .inputLight, .inputDark {
+        width: 60vw;
+    }
+
+    .headerSearchLight, .headerSearchDark {
+        margin-right: 1rem;
     }
 }
 

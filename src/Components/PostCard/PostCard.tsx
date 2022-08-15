@@ -6,6 +6,7 @@ import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 import './PostCard.css';
 import classNames from 'classnames';
+import format from "date-fns/format";
 
 type PostCardProps = {
     post: PostDescription;
@@ -13,8 +14,12 @@ type PostCardProps = {
 
 const PostCard: FC<PostCardProps> = ( { post } ) => {
     const { theme } = useThemeContext();
-
     const isThemeLight = theme === Theme.Light;
+
+    function newDateFormat(publishedAt: string) {
+      const date = format(new Date(publishedAt), "PPP");
+      return date;
+    }
     
   return (
     <Link to={`/content/${post.id}`}>
@@ -34,7 +39,7 @@ const PostCard: FC<PostCardProps> = ( { post } ) => {
             <div className={classNames({
             ['postDataLight']: isThemeLight,
             ['postDataDark']: !isThemeLight,
-            })}>{post.publishedAt}</div>
+            })}>{newDateFormat(post.publishedAt)}</div>
             <div className={classNames({
             ['postTitleLight']: isThemeLight,
             ['postTitleDark']: !isThemeLight,

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer';
 import Header from '../../Components/Header';
 import SignInForm from '../../Components/SignInForm';
+import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 const SignIn: FC = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,9 @@ const SignIn: FC = () => {
             })
             .catch(() => alert("This user is not registered. Sign Up, please!"));
         };
+
+    const { theme } = useThemeContext();
+    const isThemeLight = theme === Theme.Light;
 
     return (
         <>
