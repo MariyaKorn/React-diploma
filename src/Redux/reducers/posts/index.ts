@@ -8,6 +8,7 @@ type InitialStateType = {
     selectedPost: PostDescription | null;
     isSelectedPostLoading: boolean;
     totalAllPostsCounter: number;
+    isTotalAllPostsCounterLoading: boolean;
 };
 
 const initialState: InitialStateType = {
@@ -16,6 +17,7 @@ const initialState: InitialStateType = {
     selectedPost: null,
     isSelectedPostLoading: false,
     totalAllPostsCounter: 0,
+    isTotalAllPostsCounterLoading: false,
 };
 
 const postsSlice = createSlice({
@@ -38,6 +40,9 @@ const postsSlice = createSlice({
         setTotalAllPostsCounter: (state: any, action: any) => {
             state.totalAllPostsCounter = action.payload;
         },
+        setTotalAllPostsCounterLoading: (state: any, action: any) => {
+            state.isTotalAllPostsCounterLoading = action.payload;
+        },
     },
 });
 
@@ -48,6 +53,7 @@ export const {
     setSelectedPost, 
     setSelectedPostLoading ,
     setTotalAllPostsCounter,
+    setTotalAllPostsCounterLoading,
 } = postsSlice.actions;
 
 const reducer = postsSlice.reducer;
@@ -60,4 +66,5 @@ export const PostsSelectors = {
     getSelectedPost: (state: RootState) => state.posts.selectedPost,
     getSelectedPostLoading: (state: RootState) => state.posts.isSelectedPostLoading,
     getTotalAllPostsCounter: (state: RootState) => state.posts.totalAllPostsCounter,
+    getTotalAllPostsCounterLoading: (state: RootState) => state.posts.isTotalAllPostsCounterLoading,
 };

@@ -6,8 +6,9 @@ const API = create({
 
 const getAllPostsApi = ({
     _limit = 12,
+    _start = 0,
 }) => {
-    return API.get("/articles/", {_limit});
+    return API.get("/articles/", {_limit, _start});
 };
 
 const getSelectedPostApi = (id: string) => {

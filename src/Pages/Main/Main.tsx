@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts, PostsSelectors, setSelectedPost, setTotalAllPostsCounter } from '../../Redux/reducers/posts';
 
@@ -6,6 +6,7 @@ import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 import PostCard from '../../Components/PostCard';
 import Loader from '../../Components/Loader';
+import Pagination from '../../Components/Pagination';
 
 import classNames from 'classnames';
 import { useThemeContext, Theme } from '../../Context/themeModeContext';
@@ -19,30 +20,37 @@ const Main: FC = () => {
     const postsList = useSelector(PostsSelectors.getPosts);
     const post = useSelector(PostsSelectors.getSelectedPost);
     const isPostsLoading = useSelector(PostsSelectors.getPostsLoading);
+    const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
+
+    const [_limit, setLimit] = useState(12);
+    const [page, setPage] = useState(1);
+
+    const pagesCount = Math.ceil(totalCount /_limit);
     
     const dispatch = useDispatch();
-
     const { id } = useParams<{id:string}>();
 
-    // const totalCount = useSelector(PostsSelectors.getTotalAllPostsCounter);
-    // console.log(totalCount);
-    // useEffect(() => {
-    //     dispatch(setTotalAllPostsCounter({}))
-    // }, [])
+    useEffect(() => {
+        const _start = (page - 1) * _limit;
+        dispatch(getPosts({_limit,_start}));
+    }, [_limit, page])
 
     useEffect(() => {
-        dispatch(getPosts({
-            _limit: 12
-        }));
-    }, [ ])
-
-    useEffect(() => {
-        dispatch(setSelectedPost(id))
+        dispatch(setSelectedPost(id));
     }, [])
+
+    useEffect(() => {
+        dispatch(setTotalAllPostsCounter({}));
+    }, [])
+
+    console.log(totalCount)
 
     const { theme } = useThemeContext();
     const isThemeLight = theme === Theme.Light;
-    
+
+    const onPrevClick = () => setPage(page - 1);
+    const onNextClick = () => setPage(page + 1);
+
     return (
         <>
         <Header />
@@ -61,6 +69,12 @@ const Main: FC = () => {
             })}>
             {postsList?.map((post: PostDescription) => (
             <PostCard key={post.id} post={post} />))}
+            <Pagination
+            pageNum={page}
+            pagesCount={pagesCount}
+            onPrevClick={onPrevClick}
+            onNextClick={onNextClick}
+        ></Pagination>
         </div></>)}
         <Footer />
         </>
