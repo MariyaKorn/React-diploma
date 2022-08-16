@@ -43,8 +43,8 @@ const Pagination: FC<PaginationProps> = ({
             <div className="paginationPageNums">
                 <div className="paginationPageNum">{pageNum}</div>
                 <div className="paginationPageNum">{`${pageNum+1}`}</div>
-                <div className="paginationPageNum">{`${pageNum+2}`}</div>
-                <div className="paginationPageNum">{`${pageNum+3}`}</div>
+                <div className="paginationPageNum three">{`${pageNum+2}`}</div>
+                <div className="paginationPageNum four">{`${pageNum+3}`}</div>
                 <div className="paginationPageNum">...</div>
                 <div className="paginationPageNum">{pagesCount}</div>
             </div>

@@ -60,3 +60,51 @@
   border-color: gray;
   color: gray;
 }
+
+@media only screen and (max-width: 1440px) {
+  .paginationButtonsLight, .paginationButtonsDark {
+    gap: 190px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .paginationButtonsLight, .paginationButtonsDark {
+    gap: 130px;
+    font-size: 10px;
+  }
+
+  .paginationButtonInfoLight, .paginationButtonInfoDark {
+    gap: 7px;
+    font-size: 10px;
+  }
+
+  .paginationButtonInfoLight img, .paginationButtonInfoDark img {
+    width: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .paginationButtonsLight, .paginationButtonsDark {
+    gap: 90px;
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .paginationButtonsLight, .paginationButtonsDark {
+    gap: 15px;
+    font-size: 10px;
+  }
+
+  .paginationButtonInfoLight div, .paginationButtonInfoDark div{
+    display: none;
+  }
+
+  .paginationButtonInfoLight, .paginationButtonInfoDark {
+    gap: 3px;
+  }
+
+  .paginationPageNum.three, .paginationPageNum.four {
+    display: none;
+  }
+}
