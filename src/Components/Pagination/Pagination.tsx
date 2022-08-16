@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import "./Pagination.css";
 import classNames from "classnames";
 import prev from '../../Assets/Images/ArrowLeft.png';
-import next from '../../Assets/Images/ArrowRight.png'
+import next from '../../Assets/Images/ArrowRight.png';
+import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 type PaginationProps = {
     pageNum: number;
@@ -18,13 +19,21 @@ const Pagination: FC<PaginationProps> = ({
     onNextClick,
 }) => {
 
+    const { theme } = useThemeContext();
+    const isThemeLight = theme === Theme.Light;
+
     return (
     <div className="pagination">
-        <div className="paginationButtons">
+        <div className={classNames({
+            ['paginationButtonsLight']: isThemeLight,
+            ['paginationButtonsDark']: !isThemeLight,})}>
             <div>
-                <button className={classNames("paginationButton", { ["_inactive"]: pageNum === 1 })} 
-                onClick={onPrevClick}>
-                    <div className="paginationButtonInfo">
+                <button className={classNames("paginationButton", { 
+                    ["_inactive"]: pageNum === 1 })} 
+                    onClick={onPrevClick}>
+                    <div className={classNames({
+                        ['paginationButtonInfoLight']: isThemeLight,
+                        ['paginationButtonInfoDark']: !isThemeLight,})}>
                         <img src={prev} alt="prev-page" />
                         <div>Prev</div>
                     </div>
@@ -37,14 +46,17 @@ const Pagination: FC<PaginationProps> = ({
                 <div className="paginationPageNum">{`${pageNum+2}`}</div>
                 <div className="paginationPageNum">{`${pageNum+3}`}</div>
                 <div className="paginationPageNum">...</div>
-                <div className="paginationPageNum">{`${pageNum+5}`}</div>
+                <div className="paginationPageNum">{pagesCount}</div>
             </div>
         
             <div>
                 <button
-                    className={classNames("paginationButton", { ["_inactive"]: pageNum === pagesCount })}
+                    className={classNames("paginationButton", {
+                        ["_inactive"]: pageNum === pagesCount })}
                     onClick={onNextClick}>
-                    <div className="paginationButtonInfo">
+                    <div className={classNames({
+                        ['paginationButtonInfoLight']: isThemeLight,
+                        ['paginationButtonInfoDark']: !isThemeLight,})}>
                         <div>Next</div>
                         <img src={next} alt="next-page" />
                     </div>

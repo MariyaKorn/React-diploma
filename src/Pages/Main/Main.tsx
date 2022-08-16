@@ -43,8 +43,6 @@ const Main: FC = () => {
         dispatch(setTotalAllPostsCounter({}));
     }, [])
 
-    console.log(totalCount)
-
     const { theme } = useThemeContext();
     const isThemeLight = theme === Theme.Light;
 

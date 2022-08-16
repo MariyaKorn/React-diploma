@@ -1,14 +1,27 @@
-.paginationButtons {
+.paginationButtonsLight {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 260px;
+  gap: 245px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: #313037;
+}
+
+.paginationButtonsDark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 245px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
 }
 
 .paginationButton {
@@ -23,12 +36,16 @@
   cursor: pointer;
 }
 
-.paginationButtonInfo {
+.paginationButtonInfoLight, .paginationButtonInfoDark {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 11px;
   cursor: pointer;
+}
+
+.paginationButtonInfoDark div {
+  color: #fff;
 }
 
 .paginationPageNums {
