@@ -68,11 +68,10 @@ const Main: FC = () => {
             {postsList?.map((post: PostDescription) => (
             <PostCard key={post.id} post={post} />))}
             <Pagination
-            pageNum={page}
-            pagesCount={pagesCount}
-            onPrevClick={onPrevClick}
-            onNextClick={onNextClick}
-        ></Pagination>
+                pageNum={page}
+                pagesCount={pagesCount}
+                onPrevClick={onPrevClick}
+                onNextClick={onNextClick} />
         </div></>)}
         <Footer />
         </>
