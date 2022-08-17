@@ -10,7 +10,7 @@ type PaginationProps = {
     pagesCount: number;
     onPrevClick: () => void;
     onNextClick: () => void;
-    onPageClick: (pageNum: number) => void;
+    onPageClick: () => void;
 };
 
 const Pagination: FC<PaginationProps> = ({
@@ -44,11 +44,11 @@ const Pagination: FC<PaginationProps> = ({
 
             <div className="paginationPageNums">
                 <div className="paginationPageNum">{pageNum}</div>
-                <div className="paginationPageNum" onClick={() => onPageClick(pageNum)}>{`${pageNum+1}`}</div>
-                <div className="paginationPageNum three" onClick={() => onPageClick(pageNum)}>{`${pageNum+2}`}</div>
-                <div className="paginationPageNum four" onClick={() => onPageClick(pageNum)}>{`${pageNum+3}`}</div>
+                <div className="paginationPageNum" onClick={onPageClick}>{`${pageNum+1}`}</div>
+                <div className="paginationPageNum three" onClick={onPageClick}>{`${pageNum+2}`}</div>
+                <div className="paginationPageNum four" onClick={onPageClick}>{`${pageNum+3}`}</div>
                 <div className="paginationPageNum">...</div>
-                <div className="paginationPageNum" onClick={() => onPageClick(pageNum)}>{pagesCount}</div>
+                <div className="paginationPageNum" onClick={onPageClick}>{pagesCount}</div>
             </div>
         
             <div>

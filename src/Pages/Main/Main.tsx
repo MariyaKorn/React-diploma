@@ -24,6 +24,7 @@ const Main: FC = ({ }) => {
 
     const [_limit, setLimit] = useState(12);
     const [page, setPage] = useState(1);
+    const [pageSelected, setPageSelected] = useState(page);
 
     const pagesCount = Math.ceil(totalCount /_limit);
     
@@ -32,8 +33,8 @@ const Main: FC = ({ }) => {
 
     useEffect(() => {
         const _start = (page - 1) * _limit;
-        dispatch(getPosts({_limit,_start}));
-    }, [_limit, page])
+        dispatch(getPosts({_limit, _start}));
+    }, [_limit, page, pageSelected])
 
     useEffect(() => {
         dispatch(setSelectedPost(id));
@@ -48,8 +49,9 @@ const Main: FC = ({ }) => {
 
     const onPrevClick = () => setPage(page - 1);
     const onNextClick = () => setPage(page + 1);
-    const onPageClick = (pageNum: number) => {
-        setPage(pageNum);
+    const onPageClick = () => {
+        setPageSelected(page + pageSelected);
+        setPage(pageSelected);
     }
 
     return (
