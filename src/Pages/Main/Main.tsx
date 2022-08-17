@@ -15,7 +15,7 @@ import { PostDescription } from '../../Types/PostDescription';
 import './Main.css';
 import { useParams } from 'react-router-dom';
 
-const Main: FC = () => {
+const Main: FC = ({ }) => {
 
     const postsList = useSelector(PostsSelectors.getPosts);
     const post = useSelector(PostsSelectors.getSelectedPost);
@@ -48,6 +48,9 @@ const Main: FC = () => {
 
     const onPrevClick = () => setPage(page - 1);
     const onNextClick = () => setPage(page + 1);
+    const onPageClick = (pageNum: number) => {
+        setPage(pageNum);
+    }
 
     return (
         <>
@@ -60,7 +63,12 @@ const Main: FC = () => {
         : (<><div className={classNames({
             ['titleLight']: isThemeLight,
             ['titleDark']: !isThemeLight,
-            })}>Blog</div>
+            })}>
+                <div>
+                Blog
+                </div>
+                
+            </div>
         <div className={classNames({
             ['postsContainerLight']: isThemeLight,
             ['postsContainerDark']: !isThemeLight,
@@ -71,7 +79,9 @@ const Main: FC = () => {
                 pageNum={page}
                 pagesCount={pagesCount}
                 onPrevClick={onPrevClick}
-                onNextClick={onNextClick} />
+                onNextClick={onNextClick}
+                onPageClick={onPageClick}
+                />
         </div></>)}
         <Footer />
         </>
