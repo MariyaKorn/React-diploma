@@ -21,6 +21,7 @@ const Content: FC = () => {
     useEffect(() => {
         dispatch(getPosts({
             _limit: 12,
+            _start: 0,
         }));
         window.scrollTo(0, 0);
     }, [ ]);

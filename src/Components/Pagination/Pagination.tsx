@@ -7,10 +7,10 @@ import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 type PaginationProps = {
     pageNum: number;
-    pagesCount: number;
-    onPrevClick: () => void;
-    onNextClick: () => void;
-    onPageClick: () => void;
+    pagesCount?: number;
+    onPrevClick?: () => void;
+    onNextClick?: () => void;
+    onPageClick?: () => void;
 };
 
 const Pagination: FC<PaginationProps> = ({
