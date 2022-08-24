@@ -1,7 +1,7 @@
 import React, { FC }  from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { getPosts, PostsSelectors, setSelectedPost, setTotalAllPostsCounter } from '../../Redux/reducers/posts';
+import { PostsSelectors } from '../../Redux/reducers/posts';
 import { PostDescription } from '../../Types/PostDescription';
 
 import Footer from '../../Components/Footer';
@@ -27,19 +27,17 @@ const Search: FC = () => {
             ['searchLight']: isThemeLight,
             ['searchDark']: !isThemeLight,
             })}>
-        Search results {' '}
-        {searchParams.get('contains') ? `'${searchParams.get('contains')}'` : null}
+            Search results {searchParams.get('contains') ? ` '${searchParams.get('contains')}'` : null}
 
             <div className={classNames({
                 ['postsWrapperLight']: isThemeLight,
                 ['postsWrapperDark']: !isThemeLight,
                 })}>
-            {postsList ? (
-                postsList
-                ?.filter((post) => post.title.toLowerCase().includes(`${searchParams.get('contains')}`))
-                .map((post: PostDescription) => (
-                    <PostCard key={post.id} post={post} />))) 
-                : (<div>No results</div>)}
+                {postsList.length ? (
+                    postsList
+                    ?.filter((post) => post.title.toLowerCase().includes(`${searchParams.get('contains')}`))
+                    .map((post: PostDescription) => (
+                    <PostCard key={post.id} post={post} />))) : (<div>No results</div>)}
             </div>
         </div>
         <Footer />

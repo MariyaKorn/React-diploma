@@ -46,6 +46,10 @@
     margin-right: 2rem;
 }
 
+.headerSearchLight i:hover, .headerSearchDark i:hover {
+    transform: scale(1.3);
+}
+
 .inputLight {
     height: 96px;
     width: 70vw;

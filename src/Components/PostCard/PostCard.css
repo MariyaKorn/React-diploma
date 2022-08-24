@@ -12,6 +12,11 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+.postWrapperLight:hover, .postWrapperDark:hover {
+    box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
 .postImgLight, .postImgDark {
     width: 18vw;
     height: 30vh;

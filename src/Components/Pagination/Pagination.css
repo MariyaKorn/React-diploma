@@ -36,6 +36,26 @@
   cursor: pointer;
 }
 
+.paginationPageNum {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #313037;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.paginationPageNum.active {
+  color: #6C1BDB;
+}
+
+.paginationPageNum:hover, .paginationButton:hover {
+  color: #6C1BDB;
+}
+
 .paginationButtonInfoLight, .paginationButtonInfoDark {
   display: flex;
   flex-direction: row;
@@ -46,6 +66,10 @@
 
 .paginationButtonInfoDark div {
   color: #fff;
+}
+
+.paginationButtonInfoDark div:hover {
+  color: #6C1BDB;
 }
 
 .paginationPageNums {

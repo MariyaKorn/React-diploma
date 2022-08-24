@@ -1,7 +1,5 @@
-import React, { FC, useState, useEffect, ChangeEvent }  from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getPosts, PostsSelectors, setSelectedPost, setTotalAllPostsCounter } from '../../Redux/reducers/posts';
+import React, { FC, useState}  from 'react';
+import { useNavigate}  from 'react-router-dom';
 
 import classNames from 'classnames';
 import './Header.css';
@@ -34,22 +32,23 @@ const Header: FC<HeaderProps> = ({}: any) => {
     const isThemeLight = theme === Theme.Light;
 
     const [value, setValue] = useState('');
-    const [searchParams, setSearchParams] = useSearchParams();
 
     const redirectToSearch = () => {
-        const params = new URLSearchParams();
-        if (value) {
-            params.append("contains", value);
-        } else {
-            params.delete("contains");
-        }
-        navigate({
-            pathname: "/search",
-            search: params.toString(),
-        });
+        if (value !=='') {
+            const params = new URLSearchParams();
+            if (value) {
+                params.append("contains", value);
+            } else {
+                params.delete("contains");
+            }
+            navigate({
+                pathname: "/search",
+                search: params.toString(),
+            });
+        };
     };
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: any) => {
         setValue(e.target.value);
     };
 
@@ -63,12 +62,12 @@ const Header: FC<HeaderProps> = ({}: any) => {
         <div className={classNames({
             ['headerLight']: isThemeLight,
             ['headerDark']: !isThemeLight,
-        })}>
+            })}>
             <img src={logo} alt="logo" onClick={redirectToMain}/>
             <div className={classNames({
             ['headerSearchLight']: isThemeLight,
             ['headerSearchDark']: !isThemeLight,
-        })}>
+            })}>
                 <Input type='text' className={classNames({
                 ['inputLight']: isThemeLight,
                 ['inputDark']: !isThemeLight,
@@ -76,7 +75,7 @@ const Header: FC<HeaderProps> = ({}: any) => {
                 value={value}
                 onChange={handleInputChange}
                 onKeyDown={onEnter} />
-                <i className="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass" onClick={redirectToSearch}></i>
             </div>
             
             {!auth && (
@@ -88,18 +87,18 @@ const Header: FC<HeaderProps> = ({}: any) => {
                     className={classNames({
                     ['headerSignInButtonLight']: isThemeLight,
                     ['headerSignInButtonDark']: !isThemeLight,})}/>
-            </div>
+                </div>
             )}
 
             {auth && (
-            <div className={classNames({
-                ['headerAuthUserLight']: isThemeLight,
-                ['headerAuthUserDark']: !isThemeLight,})}>
-                <img src={userName} alt="userName" />
-                <div>Artem Malkin</div>
-            </div>)}
+                <div className={classNames({
+                    ['headerAuthUserLight']: isThemeLight,
+                    ['headerAuthUserDark']: !isThemeLight,})}>
+                    <img src={userName} alt="userName" />
+                    <div>Artem Malkin</div>
+                </div>)}
         </div>
-    )
+    );
 };
 
 export default Header;

@@ -7,10 +7,10 @@ import { useThemeContext, Theme } from '../../Context/themeModeContext';
 
 type PaginationProps = {
     pageNum: number;
-    pagesCount?: number;
-    onPrevClick?: () => void;
-    onNextClick?: () => void;
-    onPageClick?: () => void;
+    pagesCount: number;
+    onPrevClick: () => void;
+    onNextClick: () => void;
+    onPageClick: () => void;
 };
 
 const Pagination: FC<PaginationProps> = ({
@@ -43,12 +43,12 @@ const Pagination: FC<PaginationProps> = ({
             </div>
 
             <div className="paginationPageNums">
-                <div className="paginationPageNum">{pageNum}</div>
-                <div className="paginationPageNum" onClick={onPageClick}>{`${pageNum+1}`}</div>
-                <div className="paginationPageNum three" onClick={onPageClick}>{`${pageNum+2}`}</div>
-                <div className="paginationPageNum four" onClick={onPageClick}>{`${pageNum+3}`}</div>
-                <div className="paginationPageNum">...</div>
-                <div className="paginationPageNum" onClick={onPageClick}>{pagesCount}</div>
+                <button className="paginationPageNum" onClick={onPageClick}>{pageNum}</button>
+                <button className="paginationPageNum" onClick={onPageClick}>{`${pageNum+1}`}</button>
+                <button className="paginationPageNum three" onClick={onPageClick}>{`${pageNum+2}`}</button>
+                <button className="paginationPageNum four" onClick={onPageClick}>{`${pageNum+3}`}</button>
+                <button className="paginationPageNum">...</button>
+                <button className="paginationPageNum" onClick={onPageClick}>{pagesCount}</button>
             </div>
         
             <div>
