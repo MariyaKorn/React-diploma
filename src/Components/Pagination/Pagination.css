@@ -86,17 +86,17 @@
   color: gray;
 }
 
-.paginationButton._active {
-  color: #6C1BDB;;
+.paginationButton._dark {
+  color: #fff;
 }
 
-.paginationButton._lastPage {
-  display: none;
-  pointer-events: none;
+.paginationButton._active {
+  color: #6C1BDB;
 }
 
 .paginationButton._lastPageSoon, .paginationButton._lastPageSoon-1, 
-.paginationButton._lastPageSoon-2, .paginationButton._lastPageSoon-3 {
+.paginationButton._lastPageSoon-2, .paginationButton._lastPageSoon-3,
+.paginationButton._lastPage {
   display: none;
 }
 

@@ -30,7 +30,7 @@ const Pagination: FC<PaginationProps> = ({
     <div className="pagination">
         <div className={classNames({
             ['paginationButtonsLight']: isThemeLight,
-            ['paginationButtonsDark']: !isThemeLight,})}>
+            ['paginationButtonsDark']: !isThemeLight})}>
             <div>
                 <button className={classNames("paginationButton", { 
                     ["_inactive"]: pageNum === 1 })} 
@@ -45,28 +45,34 @@ const Pagination: FC<PaginationProps> = ({
             </div>
 
             <div className="paginationPageNums">
-                <div className={classNames("paginationButton", { 
+                <div className={classNames("paginationButton", {
+                    ['_dark']: !isThemeLight, 
                     ["_lastPage"]: pageNum === pagesCount,
                     ["_active"]: pageNum === pageNum})}>{pageNum}</div>
-                <div className={classNames("paginationButton", { 
+                <div className={classNames("paginationButton", {
+                    ['_dark']: !isThemeLight, 
                     ["_lastPage"]: pageNum === pagesCount,
                     ["_lastPageSoon-1"]: pageNum === pagesCount - 1})} onClick={() => onPageClick(pageNum+1)}>{`${pageNum+1}`}</div>
                 <div className={classNames("paginationButton three", { 
+                    ['_dark']: !isThemeLight,
                     ["_lastPage"]: pageNum === pagesCount,
                     ["_lastPageSoon"]: pageNum === pagesCount - 2,
                     ["_lastPageSoon-1"]: pageNum === pagesCount - 1})} onClick={() => onPageClick(pageNum+2)}>{`${pageNum+2}`}</div>
                 <div className={classNames("paginationButton four", { 
+                    ['_dark']: !isThemeLight,
                     ["_lastPage"]: pageNum === pagesCount,
                     ["_lastPageSoon"]: pageNum === pagesCount - 2,
                     ["_lastPageSoon-1"]: pageNum === pagesCount - 1,
                     ["_lastPageSoon-2"]: pageNum === pagesCount - 3})} onClick={() => onPageClick(pageNum+3)}>{`${pageNum+3}`}</div>
                 <div className={classNames("paginationButton", { 
+                    ['_dark']: !isThemeLight,
                     ["_lastPage"]: pageNum === pagesCount,
                     ["_lastPageSoon-1"]: pageNum === pagesCount - 1,
                     ["_lastPageSoon"]: pageNum === pagesCount - 2,
                     ["_lastPageSoon-2"]: pageNum === pagesCount - 3,
                     ["_lastPageSoon-3"]: pageNum === pagesCount - 4})}>...</div>
-                <div className={classNames("paginationButton", { 
+                <div className={classNames("paginationButton", {
+                    ['_dark']: !isThemeLight, 
                     ["_active"]: pageNum === pagesCount})} onClick={onLastClick}>{pagesCount}</div>
             </div>
         

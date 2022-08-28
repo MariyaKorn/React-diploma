@@ -49,11 +49,7 @@ const Main: FC = ({ }) => {
     const onPrevClick = () => setPage(page - 1);
     const onNextClick = () => setPage(page + 1);
     const onLastClick = () => setPage(pagesCount);
-    const onPageClick = (page: number) => {
-        setPage(page);
-        const _start = (page - 1) * _limit;
-        dispatch(getPosts({_limit, _start}));
-    };
+    const onPageClick = (page: number) => setPage(page);
 
     return (
         <>
