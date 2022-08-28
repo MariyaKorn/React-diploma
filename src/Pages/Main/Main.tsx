@@ -48,7 +48,9 @@ const Main: FC = ({ }) => {
 
     const onPrevClick = () => setPage(page - 1);
     const onNextClick = () => setPage(page + 1);
-    const onPageClick = () => {
+    const onLastClick = () => setPage(pagesCount);
+    const onPageClick = (page: number) => {
+        setPage(page);
         const _start = (page - 1) * _limit;
         dispatch(getPosts({_limit, _start}));
     };
@@ -82,6 +84,7 @@ const Main: FC = ({ }) => {
                 onPrevClick={onPrevClick}
                 onNextClick={onNextClick}
                 onPageClick={onPageClick}
+                onLastClick={onLastClick}
                 />
         </div></>)}
         <Footer />
@@ -91,3 +94,15 @@ const Main: FC = ({ }) => {
 };    
 
 export default Main;
+
+// let _start = 0
+//         let end = _limit*2;
+//         if (page === 1) {
+//             _start = page - 1;
+//             end = _start + _limit;
+//         } else {
+//             _start = (page - 1) * _limit;
+//             end = _start + _limit;
+//         }
+
+//         dispatch(getPosts(postsList.slice(_start, end)));

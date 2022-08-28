@@ -10,7 +10,8 @@ type PaginationProps = {
     pagesCount: number;
     onPrevClick: () => void;
     onNextClick: () => void;
-    onPageClick: () => void;
+    onPageClick: (pageNum: number) => void;
+    onLastClick: () => void;
 };
 
 const Pagination: FC<PaginationProps> = ({
@@ -19,6 +20,7 @@ const Pagination: FC<PaginationProps> = ({
     onPrevClick,
     onNextClick,
     onPageClick,
+    onLastClick,
 }) => {
 
     const { theme } = useThemeContext();
@@ -43,12 +45,29 @@ const Pagination: FC<PaginationProps> = ({
             </div>
 
             <div className="paginationPageNums">
-                <button className="paginationPageNum" onClick={onPageClick}>{pageNum}</button>
-                <button className="paginationPageNum" onClick={onPageClick}>{`${pageNum+1}`}</button>
-                <button className="paginationPageNum three" onClick={onPageClick}>{`${pageNum+2}`}</button>
-                <button className="paginationPageNum four" onClick={onPageClick}>{`${pageNum+3}`}</button>
-                <button className="paginationPageNum">...</button>
-                <button className="paginationPageNum" onClick={onPageClick}>{pagesCount}</button>
+                <div className={classNames("paginationButton", { 
+                    ["_lastPage"]: pageNum === pagesCount,
+                    ["_active"]: pageNum === pageNum})}>{pageNum}</div>
+                <div className={classNames("paginationButton", { 
+                    ["_lastPage"]: pageNum === pagesCount,
+                    ["_lastPageSoon-1"]: pageNum === pagesCount - 1})} onClick={() => onPageClick(pageNum+1)}>{`${pageNum+1}`}</div>
+                <div className={classNames("paginationButton three", { 
+                    ["_lastPage"]: pageNum === pagesCount,
+                    ["_lastPageSoon"]: pageNum === pagesCount - 2,
+                    ["_lastPageSoon-1"]: pageNum === pagesCount - 1})} onClick={() => onPageClick(pageNum+2)}>{`${pageNum+2}`}</div>
+                <div className={classNames("paginationButton four", { 
+                    ["_lastPage"]: pageNum === pagesCount,
+                    ["_lastPageSoon"]: pageNum === pagesCount - 2,
+                    ["_lastPageSoon-1"]: pageNum === pagesCount - 1,
+                    ["_lastPageSoon-2"]: pageNum === pagesCount - 3})} onClick={() => onPageClick(pageNum+3)}>{`${pageNum+3}`}</div>
+                <div className={classNames("paginationButton", { 
+                    ["_lastPage"]: pageNum === pagesCount,
+                    ["_lastPageSoon-1"]: pageNum === pagesCount - 1,
+                    ["_lastPageSoon"]: pageNum === pagesCount - 2,
+                    ["_lastPageSoon-2"]: pageNum === pagesCount - 3,
+                    ["_lastPageSoon-3"]: pageNum === pagesCount - 4})}>...</div>
+                <div className={classNames("paginationButton", { 
+                    ["_active"]: pageNum === pagesCount})} onClick={onLastClick}>{pagesCount}</div>
             </div>
         
             <div>
