@@ -36,6 +36,41 @@
     row-gap: 40px;
 }
 
+.loaderSearchLight {
+    display: flex;
+    justify-content: center;
+    /* padding-left: 21%; */
+    height: 100vh;
+    width: 100wh;
+}
+
+.loaderSearchDark {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100wh;
+}
+
+.searchResultsLight {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+    color: #313037;
+    height: 100vh;
+}
+
+.searchResultsDark {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+    color: #fff;
+    height: 100vh;
+}
+
 @media only screen and (max-width: 1440px) {
     .searchLight, .searchDark { 
         padding: 50px 15%;

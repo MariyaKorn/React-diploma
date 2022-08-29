@@ -1,5 +1,7 @@
-import React, { FC, useState}  from 'react';
-import { useNavigate}  from 'react-router-dom';
+import React, { FC, useState }  from 'react';
+import { useNavigate, useSearchParams }  from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../Redux/reducers/posts';
 
 import classNames from 'classnames';
 import './Header.css';
@@ -15,7 +17,7 @@ import user from '../../Assets/Images/User.png';
 
 type HeaderProps = {};
 
-const Header: FC<HeaderProps> = ({}: any) => {
+const Header: FC<HeaderProps> = () => {
     const auth = localStorage.getItem('uid');
 
     const navigate = useNavigate();
@@ -25,26 +27,35 @@ const Header: FC<HeaderProps> = ({}: any) => {
     };
 
     const redirectToMain = () => {
-        navigate(Pages.Main);
+        if (auth) {
+            navigate(Pages.Main);
+        };
     };
 
     const { theme } = useThemeContext();
     const isThemeLight = theme === Theme.Light;
 
     const [value, setValue] = useState('');
+    const dispatch = useDispatch();
 
     const redirectToSearch = () => {
-        if (value !=='') {
-            const params = new URLSearchParams();
-            if (value) {
-                params.append("contains", value);
+        if (auth) {
+            if (value !=='') {
+                const params = new URLSearchParams();
+                if (value) {
+                    params.append("contains", value);
+                } else {
+                    params.delete("contains");
+                }
+                navigate({
+                    pathname: "/search",
+                    search: params.toString(),
+                });
             } else {
-                params.delete("contains");
-            }
-            navigate({
-                pathname: "/search",
-                search: params.toString(),
-            });
+                alert('Enter a search query, please.')
+            };
+        } else {
+            alert('Sign In, please.')
         };
     };
 
@@ -55,6 +66,9 @@ const Header: FC<HeaderProps> = ({}: any) => {
     const onEnter = (e: any) => {
         if (e.key === "Enter") {
             redirectToSearch();
+            dispatch(getPosts({
+                _limit: 100,
+                _start: 0}));
         };
     };
 
@@ -63,7 +77,9 @@ const Header: FC<HeaderProps> = ({}: any) => {
             ['headerLight']: isThemeLight,
             ['headerDark']: !isThemeLight,
             })}>
-            <img src={logo} alt="logo" onClick={redirectToMain}/>
+            <img src={logo} alt="logo" 
+            onClick={redirectToMain}
+            />
             <div className={classNames({
             ['headerSearchLight']: isThemeLight,
             ['headerSearchDark']: !isThemeLight,
